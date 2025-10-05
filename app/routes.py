@@ -2,17 +2,19 @@ from flask import Flask, Blueprint, request, jsonify
 from flasgger import Swagger
 from app.models import trips
 
+# Cоздаем Flask и подключаем Swagger
 app = Flask(__name__)
 Swagger(app)
 
+# Главная страница
 @app.route('/')
 def index():
     return {"message": "Documentation is available at /apidocs"}
 
-
-
+# Для логической логанизации API
 bp = Blueprint("api", __name__)
 
+# Для генерациинового ID
 def _get_next_id():
     if not trips:
         return 1
@@ -260,8 +262,9 @@ def trips_stats():
 
     return jsonify(stats)
 
-
+#  Регистрация всех маршрутов
 app.register_blueprint(bp, url_prefix="/api")
 
+# Точка входа при локальном запуске
 if __name__ == "__main__":
     app.run(debug=True)
