@@ -1,6 +1,6 @@
 from flask import Flask, Blueprint, request, jsonify
 from flasgger import Swagger
-from flasgger import swag_from
+from app.models import trips
 
 app = Flask(__name__)
 Swagger(app)
@@ -9,7 +9,7 @@ Swagger(app)
 def index():
     return {"message": "Documentation is available at /apidocs"}
 
-trips = []
+
 
 bp = Blueprint("api", __name__)
 
