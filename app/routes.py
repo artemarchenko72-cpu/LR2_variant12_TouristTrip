@@ -7,7 +7,7 @@ Swagger(app)
 
 @app.route('/')
 def index():
-    return {"message": "Сервис Tourist Trips работает! Документация доступна по адресу /apidocs"}
+    return {"message": "Documentation is available at /apidocs"}
 
 trips = []
 
