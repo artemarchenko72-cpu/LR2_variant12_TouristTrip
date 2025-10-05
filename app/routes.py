@@ -1,8 +1,13 @@
 from flask import Flask, Blueprint, request, jsonify
 from flasgger import Swagger
+from flasgger import swag_from
 
 app = Flask(__name__)
 Swagger(app)
+
+@app.route('/')
+def index():
+    return {"message": "Сервис Tourist Trips работает! Документация доступна по адресу /apidocs"}
 
 trips = []
 
